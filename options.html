@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HuskySync Settings</title>
+  <link rel="icon" href="icons/icon32.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="page" style="max-width:640px">
+    <div class="brand"><img src="icons/icon48.png" alt=""><h1>HuskySync settings</h1></div>
+    <div id="messages"></div>
+    <form id="form" class="form card">
+      <label>Blackboard address
+        <input type="url" id="baseUrl" required>
+        <span class="small muted">UConn HuskyCT is https://lms.uconn.edu. Another school's Blackboard Learn address also works; Chrome will ask for access to it.</span>
+      </label>
+      <label>Time zone
+        <input type="text" id="timezone" required>
+        <span class="small muted">IANA name, e.g. America/New_York. Used for display, calendar events, and task dates.</span>
+      </label>
+      <label>Automatic sync
+        <select id="syncHours">
+          <option value="1">Every hour</option>
+          <option value="3">Every 3 hours</option>
+          <option value="6">Every 6 hours</option>
+          <option value="12">Every 12 hours</option>
+          <option value="24">Once a day</option>
+          <option value="0">Off (sync manually)</option>
+        </select>
+        <span class="small muted">Also runs shortly after Chrome starts. Needs you to be signed in to Blackboard in this browser.</span>
+      </label>
+      <label>Google Calendar ID
+        <input type="text" id="calendarId" required>
+        <span class="small muted">"primary" is your main calendar. Keep it stable after syncing: saved events belong to their original calendar.</span>
+      </label>
+      <label>Google Tasks list ID
+        <input type="text" id="tasklistId" required>
+        <span class="small muted">"@default" is your default task list.</span>
+      </label>
+      <div class="row"><button class="primary" type="submit">Save</button></div>
+    </form>
+    <section class="card">
+      <h2>Your data</h2>
+      <p class="small muted">Coursework is stored only in this browser profile (chrome.storage). Nothing is sent anywhere except HuskyCT and, when you press a Google button, Google Calendar or Tasks.</p>
+      <button id="clear">Delete all HuskySync data</button>
+    </section>
+  </main>
+  <script type="module" src="options.js"></script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HuskySync</title>
+  <link rel="icon" href="icons/icon32.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="page">
+    <header class="toolbar">
+      <div class="brand"><img src="icons/icon48.png" alt=""><h1>HuskySync</h1></div>
+      <span class="spacer"></span>
+      <span id="sync-status" class="small muted"></span>
+      <button id="sync" class="primary">Sync HuskyCT</button>
+      <button id="settings">Settings</button>
+    </header>
+
+    <div id="messages"></div>
+
+    <section class="card">
+      <div class="row">
+        <h2 style="margin:0">Google</h2>
+        <span id="google-status" class="small muted"></span>
+        <span class="spacer"></span>
+        <button id="google-connect">Connect Google</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="row" style="margin-bottom:10px">
+        <h2 style="margin:0">Due within 48 hours</h2>
+        <span class="spacer"></span>
+        <button id="sync-urgent" class="small">Add all to Google Calendar</button>
+      </div>
+      <div id="alerts"></div>
+    </section>
+
+    <section class="card">
+      <div class="toolbar filters" style="margin-bottom:12px">
+        <h2 style="margin:0">Assignments</h2>
+        <span class="spacer"></span>
+        <label>Semester <select id="f-semester"></select></label>
+        <label>Course <select id="f-course"></select></label>
+        <label>Status <select id="f-status"></select></label>
+      </div>
+      <div class="table-wrap"><table id="table"></table></div>
+      <div class="row" style="margin-top:12px">
+        <span class="small muted">Google Tasks preselect:</span>
+        <button class="small" data-preset="open">Not submitted</button>
+        <button class="small" data-preset="all">All</button>
+        <button class="small" data-preset="none">None</button>
+        <span class="spacer"></span>
+        <button id="dedupe-tasks" class="small" title="Delete extra copies of the same HuskySync task (same title and due date)">Remove duplicate tasks</button>
+        <button id="sync-tasks" class="primary">Sync selected to Google Tasks</button>
+      </div>
+      <p class="small muted" style="margin:10px 0 0">
+        Calendar events run from one hour before the deadline until the deadline. Google Tasks keeps the due
+        date only; the exact time is in the task notes. Syncing again updates the same event or task.
+        Submission status comes from your HuskyCT grade records; use “Done” for work finished outside HuskyCT.
+      </p>
+    </section>
+  </main>
+  <script type="module" src="dashboard.js"></script>
+</body>
+</html>
